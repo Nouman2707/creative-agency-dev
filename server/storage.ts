@@ -7,6 +7,8 @@ import {
   heroSlides, type HeroSlide, type InsertHeroSlide,
   subscribers, type Subscriber, type InsertSubscriber
 } from "@shared/schema";
+import { db } from "./db";
+import { eq, like, or, and, sql, isNotNull } from "drizzle-orm";
 
 // Storage interface with CRUD methods for all entities
 export interface IStorage {
@@ -449,4 +451,223 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// Database Storage Implementation
+export class DatabaseStorage implements IStorage {
+  // User methods
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
+    return user;
+  }
+
+  // Team members methods
+  async getTeamMembers(): Promise<TeamMember[]> {
+    return db.select().from(teamMembers);
+  }
+
+  async getTeamMember(id: number): Promise<TeamMember | undefined> {
+    const [member] = await db.select().from(teamMembers).where(eq(teamMembers.id, id));
+    return member || undefined;
+  }
+
+  async getTeamMemberByName(name: string): Promise<TeamMember | undefined> {
+    const [member] = await db
+      .select()
+      .from(teamMembers)
+      .where(
+        or(
+          eq(sql`lower(${teamMembers.name})`, name.toLowerCase()),
+          and(
+            isNotNull(teamMembers.nameAr),
+            eq(sql`lower(${teamMembers.nameAr})`, name.toLowerCase())
+          )
+        )
+      );
+    return member || undefined;
+  }
+
+  async createTeamMember(insertMember: InsertTeamMember): Promise<TeamMember> {
+    const [member] = await db
+      .insert(teamMembers)
+      .values(insertMember)
+      .returning();
+    return member;
+  }
+
+  // Services methods
+  async getServices(): Promise<Service[]> {
+    return db.select().from(services);
+  }
+
+  async getService(id: number): Promise<Service | undefined> {
+    const [service] = await db.select().from(services).where(eq(services.id, id));
+    return service || undefined;
+  }
+
+  async getServiceBySlug(slug: string): Promise<Service | undefined> {
+    const [service] = await db.select().from(services).where(eq(services.slug, slug));
+    return service || undefined;
+  }
+
+  async createService(insertService: InsertService): Promise<Service> {
+    const [service] = await db
+      .insert(services)
+      .values(insertService)
+      .returning();
+    return service;
+  }
+
+  // Clients methods
+  async getClients(): Promise<Client[]> {
+    return db.select().from(clients);
+  }
+
+  async getClient(id: number): Promise<Client | undefined> {
+    const [client] = await db.select().from(clients).where(eq(clients.id, id));
+    return client || undefined;
+  }
+
+  async createClient(insertClient: InsertClient): Promise<Client> {
+    const [client] = await db
+      .insert(clients)
+      .values(insertClient)
+      .returning();
+    return client;
+  }
+
+  // Testimonials methods
+  async getTestimonials(): Promise<Testimonial[]> {
+    return db.select().from(testimonials);
+  }
+
+  async getTestimonial(id: number): Promise<Testimonial | undefined> {
+    const [testimonial] = await db.select().from(testimonials).where(eq(testimonials.id, id));
+    return testimonial || undefined;
+  }
+
+  async createTestimonial(insertTestimonial: InsertTestimonial): Promise<Testimonial> {
+    const [testimonial] = await db
+      .insert(testimonials)
+      .values(insertTestimonial)
+      .returning();
+    return testimonial;
+  }
+
+  // Hero slides methods
+  async getHeroSlides(): Promise<HeroSlide[]> {
+    return db.select().from(heroSlides).orderBy(heroSlides.order);
+  }
+
+  async getHeroSlide(id: number): Promise<HeroSlide | undefined> {
+    const [slide] = await db.select().from(heroSlides).where(eq(heroSlides.id, id));
+    return slide || undefined;
+  }
+
+  async createHeroSlide(insertSlide: InsertHeroSlide): Promise<HeroSlide> {
+    const [slide] = await db
+      .insert(heroSlides)
+      .values(insertSlide)
+      .returning();
+    return slide;
+  }
+
+  // Subscribers methods
+  async getSubscribers(): Promise<Subscriber[]> {
+    return db.select().from(subscribers);
+  }
+
+  async getSubscriber(id: number): Promise<Subscriber | undefined> {
+    const [subscriber] = await db.select().from(subscribers).where(eq(subscribers.id, id));
+    return subscriber || undefined;
+  }
+
+  async getSubscriberByEmail(email: string): Promise<Subscriber | undefined> {
+    const [subscriber] = await db
+      .select()
+      .from(subscribers)
+      .where(eq(sql`lower(${subscribers.email})`, email.toLowerCase()));
+    return subscriber || undefined;
+  }
+
+  async createSubscriber(insertSubscriber: InsertSubscriber): Promise<Subscriber> {
+    const [subscriber] = await db
+      .insert(subscribers)
+      .values(insertSubscriber)
+      .returning();
+    return subscriber;
+  }
+
+  // Search method
+  async search(query: string): Promise<{
+    team: TeamMember[],
+    services: Service[]
+  }> {
+    const lowerCaseQuery = `%${query.toLowerCase()}%`;
+    
+    const teamResults = await db
+      .select()
+      .from(teamMembers)
+      .where(
+        or(
+          like(sql`lower(${teamMembers.name})`, lowerCaseQuery),
+          like(sql`lower(${teamMembers.role})`, lowerCaseQuery),
+          like(sql`lower(${teamMembers.bio})`, lowerCaseQuery),
+          and(
+            isNotNull(teamMembers.nameAr),
+            like(sql`lower(${teamMembers.nameAr})`, lowerCaseQuery)
+          ),
+          and(
+            isNotNull(teamMembers.roleAr),
+            like(sql`lower(${teamMembers.roleAr})`, lowerCaseQuery)
+          ),
+          and(
+            isNotNull(teamMembers.bioAr),
+            like(sql`lower(${teamMembers.bioAr})`, lowerCaseQuery)
+          )
+        )
+      );
+    
+    const serviceResults = await db
+      .select()
+      .from(services)
+      .where(
+        or(
+          like(sql`lower(${services.title})`, lowerCaseQuery),
+          like(sql`lower(${services.description})`, lowerCaseQuery),
+          like(sql`lower(${services.content})`, lowerCaseQuery),
+          and(
+            isNotNull(services.titleAr),
+            like(sql`lower(${services.titleAr})`, lowerCaseQuery)
+          ),
+          and(
+            isNotNull(services.descriptionAr),
+            like(sql`lower(${services.descriptionAr})`, lowerCaseQuery)
+          ),
+          and(
+            isNotNull(services.contentAr),
+            like(sql`lower(${services.contentAr})`, lowerCaseQuery)
+          )
+        )
+      );
+    
+    return {
+      team: teamResults,
+      services: serviceResults
+    };
+  }
+}
+
+// Use DatabaseStorage instead of MemStorage
+export const storage = new DatabaseStorage();
