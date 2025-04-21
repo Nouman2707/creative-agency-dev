@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon } from '@/assets/icons';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -112,24 +113,16 @@ const Contact = () => {
                   <h3 className="text-[#C9AB81] font-semibold text-lg mb-2">{t('contact.followUs')}</h3>
                   <div className="flex space-x-4 mt-2">
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C9AB81] transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <TwitterIcon size={24} />
                     </a>
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C9AB81] transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <FacebookIcon size={24} />
                     </a>
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C9AB81] transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <InstagramIcon size={24} />
                     </a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C9AB81] transition-colors">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <LinkedInIcon size={24} />
                     </a>
                   </div>
                 </div>

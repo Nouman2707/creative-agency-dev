@@ -82,16 +82,16 @@ const Footer = () => {
               We are a full-service creative agency specializing in branding, web design, development, and digital marketing.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-[#C9AB81] transition duration-300">
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C9AB81] transition duration-300">
                 <FacebookIcon size={20} />
               </a>
-              <a href="#" className="text-white hover:text-[#C9AB81] transition duration-300">
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C9AB81] transition duration-300">
                 <TwitterIcon size={20} />
               </a>
-              <a href="#" className="text-white hover:text-[#C9AB81] transition duration-300">
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C9AB81] transition duration-300">
                 <InstagramIcon size={20} />
               </a>
-              <a href="#" className="text-white hover:text-[#C9AB81] transition duration-300">
+              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#C9AB81] transition duration-300">
                 <LinkedInIcon size={20} />
               </a>
             </div>
