@@ -20,6 +20,25 @@ const englishTranslations = {
     "search": "Search"
   },
   
+  // About
+  "about": {
+    "title": "About Us",
+    "subtitle": "We are a team of creative professionals dedicated to bringing your vision to life.",
+    "ourStory": "Our Story",
+    "storyContent1": "Founded in 2015, our creative agency began with a simple mission: to deliver exceptional design and digital solutions that drive real results for our clients. What started as a small team of passionate designers and developers has grown into a full-service agency with expertise across branding, web design, development, and digital marketing.",
+    "storyContent2": "Today, we work with businesses of all sizes, from startups to established brands, helping them connect with their audience and achieve their goals through strategic creative solutions and innovative technology.",
+    "ourValues": "Our Values",
+    "value1Title": "Innovation",
+    "value1Content": "We constantly explore new ideas, technologies, and approaches to deliver creative solutions that set our clients apart in their industries.",
+    "value2Title": "Excellence",
+    "value2Content": "We are committed to delivering work of the highest quality, with attention to detail and a focus on exceeding expectations in everything we do.",
+    "value3Title": "Collaboration",
+    "value3Content": "We believe in the power of teamwork and partnership, working closely with our clients to ensure their vision is realized and their goals are achieved.",
+    "meetOurTeam": "Meet Our Team",
+    "teamDescription": "Our talented team of creative professionals is dedicated to delivering exceptional results for our clients.",
+    "viewTeam": "View Team"
+  },
+
   // Services
   "services": {
     "title": "Our Services",
