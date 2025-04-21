@@ -38,6 +38,36 @@ const englishTranslations = {
     "teamDescription": "Our talented team of creative professionals is dedicated to delivering exceptional results for our clients.",
     "viewTeam": "View Team"
   },
+  
+  // Work
+  "work": {
+    "title": "Our Work",
+    "subtitle": "Browse through our projects and see how we've helped our clients achieve their goals.",
+    "allCategories": "All Categories",
+    "startProject": "Ready to Start Your Project?",
+    "startProjectDesc": "Get in touch with us to discuss your next project. We'd love to hear from you and help bring your vision to life."
+  },
+  
+  // Contact
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us for inquiries, quotes, or to discuss your project. We'd love to hear from you.",
+    "getInTouch": "Get in Touch",
+    "visitUs": "Visit Us",
+    "callUs": "Call Us",
+    "emailUs": "Email Us",
+    "followUs": "Follow Us",
+    "sendUsMessage": "Send Us a Message",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "messageSent": "Message Sent",
+    "messageSentDesc": "Thank you for your message. We'll get back to you as soon as possible.",
+    "mapPlaceholder": "Google Map will be displayed here"
+  },
 
   // Services
   "services": {
