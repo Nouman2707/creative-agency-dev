@@ -14,6 +14,8 @@ import TeamMember from "./pages/TeamMember";
 import Work from "./pages/Work";
 import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 import Search from "./pages/Search";
 import NotFound from "@/pages/not-found";
 import { useSelector } from "react-redux";
@@ -32,6 +34,8 @@ function Router() {
       <Route path="/work" component={Work} />
       <Route path="/work/:slug" component={ProjectDetail} />
       <Route path="/contact" component={Contact} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
       <Route path="/search" component={Search} />
       <Route component={NotFound} />
     </Switch>

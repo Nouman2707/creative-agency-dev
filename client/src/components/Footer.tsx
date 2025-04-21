@@ -193,12 +193,12 @@ const Footer = () => {
               {t('footer.copyright')}
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="/privacy-policy" className="text-gray-400 hover:text-[#C9AB81] text-sm transition duration-300">
+              <Link href="/privacy-policy" className="text-gray-400 hover:text-[#C9AB81] text-sm transition duration-300">
                 {t('footer.privacyPolicy')}
-              </a>
-              <a href="/terms-of-service" className="text-gray-400 hover:text-[#C9AB81] text-sm transition duration-300">
+              </Link>
+              <Link href="/terms-of-service" className="text-gray-400 hover:text-[#C9AB81] text-sm transition duration-300">
                 {t('footer.termsOfService')}
-              </a>
+              </Link>
               <LanguageToggle />
             </div>
           </div>
