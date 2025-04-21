@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'wouter';
+import { useLocation } from 'wouter';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { setSearchQuery } from '../lib/store';
@@ -13,7 +13,8 @@ interface SearchModalProps {
 const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const [, navigate] = useNavigate();
+  // With wouter, the second element in useLocation return array is a setter, not a navigate function
+  const [location, setLocation] = useLocation();
   const [query, setQuery] = useState('');
   
   const handleSearch = (e: React.FormEvent) => {
@@ -21,7 +22,7 @@ const SearchModal = ({ isOpen, onClose }: SearchModalProps) => {
     
     if (query.trim().length >= 2) {
       dispatch(setSearchQuery(query));
-      navigate(`/search?q=${encodeURIComponent(query)}`);
+      setLocation(`/search?q=${encodeURIComponent(query)}`);
       onClose();
       setQuery('');
     }

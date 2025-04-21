@@ -121,7 +121,7 @@ export class MemStorage implements IStorage {
       {
         title: 'Development',
         description: 'We build robust, scalable web applications using the latest technologies and best practices.',
-        content: 'Our development team builds powerful, scalable web applications and websites using modern technologies and frameworks. We focus on clean, maintainable code that's optimized for performance and security. From simple websites to complex web applications, we have the expertise to bring your vision to life.',
+        content: 'Our development team builds powerful, scalable web applications and websites using modern technologies and frameworks. We focus on clean, maintainable code that\'s optimized for performance and security. From simple websites to complex web applications, we have the expertise to bring your vision to life.',
         icon: 'CodeIcon',
         slug: 'development',
         titleAr: 'تطوير البرمجيات',
@@ -140,8 +140,8 @@ export class MemStorage implements IStorage {
       },
       {
         title: 'Photography',
-        description: 'We capture high-quality images that tell your brand's story and connect with your audience.',
-        content: 'Our photography services capture stunning images that tell your brand's story and showcase your products or services. We specialize in commercial, product, and lifestyle photography that helps businesses create compelling visual content for their marketing efforts. Our experienced photographers work with you to understand your brand and create images that resonate with your target audience.',
+        description: 'We capture high-quality images that tell your brand\'s story and connect with your audience.',
+        content: 'Our photography services capture stunning images that tell your brand\'s story and showcase your products or services. We specialize in commercial, product, and lifestyle photography that helps businesses create compelling visual content for their marketing efforts. Our experienced photographers work with you to understand your brand and create images that resonate with your target audience.',
         icon: 'CameraIcon',
         slug: 'photography',
         titleAr: 'التصوير الفوتوغرافي',
