@@ -104,6 +104,12 @@ const arabicTranslations = {
     "getInTouch": "تواصل معنا"
   },
   
+  // Project Detail
+  "client": "العميل",
+  "date": "التاريخ",
+  "technologies": "التقنيات",
+  "projectGallery": "معرض المشروع",
+  
   // Footer
   "footer": {
     "quickLinks": "روابط سريعة",

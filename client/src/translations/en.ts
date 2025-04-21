@@ -104,6 +104,12 @@ const englishTranslations = {
     "getInTouch": "Get in Touch"
   },
   
+  // Project Detail
+  "client": "Client",
+  "date": "Date",
+  "technologies": "Technologies",
+  "projectGallery": "Project Gallery",
+  
   // Footer
   "footer": {
     "quickLinks": "Quick Links",

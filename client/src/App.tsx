@@ -12,6 +12,7 @@ import ServiceDetail from "./pages/ServiceDetail";
 import Team from "./pages/Team";
 import TeamMember from "./pages/TeamMember";
 import Work from "./pages/Work";
+import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
 import Search from "./pages/Search";
 import NotFound from "@/pages/not-found";
@@ -29,6 +30,7 @@ function Router() {
       <Route path="/team" component={Team} />
       <Route path="/team/:id" component={TeamMember} />
       <Route path="/work" component={Work} />
+      <Route path="/work/:slug" component={ProjectDetail} />
       <Route path="/contact" component={Contact} />
       <Route path="/search" component={Search} />
       <Route component={NotFound} />
