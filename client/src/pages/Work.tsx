@@ -67,7 +67,7 @@ const Work = () => {
       id: 5,
       title: "Product Photography",
       category: "Photography",
-      imageUrl: "https://images.unsplash.com/photo-1481923546942-d8db597fc2f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+      imageUrl: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
       slug: "product-photography",
       titleAr: "تصوير المنتجات",
       categoryAr: "التصوير الفوتوغرافي"
